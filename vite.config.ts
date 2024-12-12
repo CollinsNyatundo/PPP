@@ -20,6 +20,7 @@ export default defineConfig({
         },
       },
     },
+    outDir: 'dist', // Ensure this matches the 'publish' directory in netlify.toml
   },
   server: {
     port: 3000,
@@ -27,4 +28,5 @@ export default defineConfig({
   preview: {
     port: 8080,
   },
+  base: '/', // This ensures assets are loaded from the correct path
 });
