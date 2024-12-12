@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import NavigationManager from './components/NavigationManager';
@@ -36,32 +36,21 @@ function App() {
                 <Contact />
               </>
             } />
-            <Route path="/projects" element={
-              <>
-                <Navbar />
-                <AllProjects />
-              </>
-            } />
-            <Route path="/articles" element={
-              <>
-                <Navbar />
-                <AllArticles />
-              </>
-            } />
-            <Route path="/blog/:slug" element={
-              <>
-                <Navbar />
-                <BlogDetail />
-              </>
-            } />
+            <Route path="/projects" element={<><Navbar /><AllProjects /></>} />
+            <Route path="/articles" element={<><Navbar /><AllArticles /></>} />
+            <Route path="/blog/:slug" element={<><Navbar /><BlogDetail /></>} />
 
             {/* Admin Routes */}
+            <Route path="/admin" element={<ProtectedRoute><AdminLayout /></ProtectedRoute>}>
+              {/* Nested admin routes go here */}
+              <Route index element={<Navigate to="/admin/dashboard" replace />} />
+              <Route path="dashboard" element={<div>Admin Dashboard</div>} />
+              {/* Add more admin routes as needed */}
+            </Route>
             <Route path="/admin/login" element={<AdminLogin />} />
-            <Route path="/admin/*" element={
-              <ProtectedRoute>
-                <AdminLayout />
-              </ProtectedRoute>
-            } />
+
+            {/* Catch-all route for 404 errors */}
+            <Route path="*" element={<div>404 - Page Not Found</div>} />
           </Routes>
         </React.Suspense>
         <ToastContainer
