@@ -1,0 +1,55 @@
+@layer components {
+  .prose {
+    @apply text-gray-300;
+    
+    h1, h2, h3, h4, h5, h6 {
+      @apply text-white font-bold scroll-mt-20;
+    }
+
+    h1 { @apply text-4xl md:text-5xl mb-8; }
+    h2 { @apply text-3xl md:text-4xl mb-6; }
+    h3 { @apply text-2xl md:text-3xl mb-4; }
+    h4 { @apply text-xl md:text-2xl mb-4; }
+
+    p {
+      @apply mb-6 leading-relaxed;
+      max-width: 70ch;
+    }
+
+    a {
+      @apply text-purple-400 hover:text-purple-300 transition-colors;
+    }
+
+    ul, ol {
+      @apply mb-6 pl-6;
+    }
+
+    li {
+      @apply mb-2;
+    }
+
+    blockquote {
+      @apply border-l-4 border-purple-500 pl-4 italic my-6;
+    }
+
+    pre {
+      @apply bg-gray-800 p-4 rounded-lg overflow-x-auto mb-6;
+    }
+
+    code {
+      @apply bg-gray-800 text-purple-300 px-2 py-1 rounded;
+    }
+
+    img {
+      @apply rounded-lg my-8;
+    }
+
+    figure {
+      @apply my-8;
+
+      figcaption {
+        @apply text-sm text-gray-400 text-center mt-2;
+      }
+    }
+  }
+}

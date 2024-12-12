@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+:root {
+  --font-family: 'Roboto', sans-serif;
+  --primary-color: #1f2937; /* Tailwind's bg-gray-900 */
+  --secondary-color: #f3f4f6; /* Tailwind's gray-100 */
+  --text-color: #e5e7eb; /* Tailwind's gray-300 */
+  --hover-text-color: #ffffff; /* White */
+  --transition-duration: 0ms;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-family);
+    margin: 0;
+    overflow-x: hidden;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0 0 1rem;
+    line-height: 1.2;
+  }
+
+  p {
+    margin: 0 0 1rem;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+    transition: color var(--transition-duration);
+  }
+
+  button {
+    cursor: pointer;
+    transition: background-color var(--transition-duration);
+  }
+}
+
+@layer utilities {
+  .bg-grid {
+    background-size: 30px 30px;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  }
+
+  .contact-form input[type="text"],
+  .contact-form input[type="email"] {
+    width: 100%; /* Ensures the input fields take the full width of their container */
+    max-width: 400px; /* Sets a maximum width for the input fields */
+    padding: 10px; /* Adds padding for better readability */
+    margin-bottom: 1rem; /* Adds space between the input fields */
+    border: 1px solid #ccc; /* Adds a border to the input fields */
+    border-radius: 4px; /* Rounds the corners of the input fields */
+    font-size: 16px; /* Sets a consistent font size */
+    box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
+  }
+}

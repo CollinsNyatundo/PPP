@@ -1,0 +1,52 @@
+@layer components {
+  .admin-card {
+    @apply bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-200;
+    width: 320px;
+    
+    &:hover {
+      transform: scale(1.02);
+    }
+  }
+
+  .admin-card-image {
+    @apply relative overflow-hidden;
+    aspect-ratio: 16/9;
+    
+    img {
+      @apply w-full h-full object-cover;
+    }
+  }
+
+  .admin-card-content {
+    @apply p-4;
+  }
+
+  .admin-card-title {
+    @apply text-lg font-semibold text-white mb-2;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .admin-card-metadata {
+    @apply flex flex-wrap gap-2 text-sm text-gray-400 mb-4;
+  }
+
+  .admin-card-actions {
+    @apply flex justify-end gap-2;
+    
+    button {
+      @apply p-2 text-gray-400 hover:text-purple-400 transition-colors;
+    }
+  }
+
+  .admin-form-control {
+    @apply bg-gray-800 border border-gray-700 rounded-lg p-2 text-white w-full;
+    transition: all 0.2s ease-in-out;
+
+    &:focus {
+      @apply border-purple-500 ring-2 ring-purple-500/20 outline-none;
+    }
+  }
+}
